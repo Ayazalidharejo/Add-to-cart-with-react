@@ -1,23 +1,27 @@
-import logo from './logo.svg';
+import 'bootstrap/dist/js/bootstrap.bundle.min';
+import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
+import Todoapp from './todo-app';
+import { useEffect, useState } from 'react';
+import Gettodo from './Gettodo';
 
 function App() {
+  const [todos, settodos] = useState([]);
+
+  const fatchalltodos = () => {
+    const Todolist = localStorage.getItem('Todolist');
+    return Todolist ? JSON.parse(Todolist) : [];
+  };
+
+  useEffect(() => {
+    const Alldotos = fatchalltodos();
+    settodos(Alldotos);
+  }, []); // Dependency array should be outside the function body
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <Todoapp todos={todos} settodos={settodos} />
+      <Gettodo todos={todos} settodos={settodos} />
     </div>
   );
 }
