@@ -20,7 +20,7 @@ const Todoapp = ({ todos, settodos }) => {
   return (
     <>
       <div className='container text-center mt-5'>
-        <h1 className='my-5'>Todo Application In React</h1>
+        <h1 className='my-5'>Todo Application In React with local storage</h1>
       </div>
       <div className='text-center'>
         <input

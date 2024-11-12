@@ -4,6 +4,7 @@ import './App.css';
 import Todoapp from './todo-app';
 import { useEffect, useState } from 'react';
 import Gettodo from './Gettodo';
+import WithoutLocal from './Without_local_storage';
 
 function App() {
   const [todos, settodos] = useState([]);
@@ -22,6 +23,7 @@ function App() {
     <div>
       <Todoapp todos={todos} settodos={settodos} />
       <Gettodo todos={todos} settodos={settodos} />
+      <WithoutLocal/>
     </div>
   );
 }
